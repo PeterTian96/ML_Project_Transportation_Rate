@@ -22,5 +22,7 @@ The project will use Notebook, Pycharm, and other IDEs
 
 # Contract
 Weixi Chen: weixi.chen@vanderbilt.edu
+
 Shuyang Lin: shuyang.lin@vanderbilt.edu
+
 Peter Tian: Zhengqi.tian@vanderbilt.edu
