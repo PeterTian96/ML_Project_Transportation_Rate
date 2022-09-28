@@ -1,8 +1,9 @@
 # ML_Project_Transportation_Rate
 
-#Quick Navigation
+# Quick Navigation
 
 [Goal](#Goal)
+
 [Data](#Data)
 [Environment](#Environment)
 [Package](#Package)
