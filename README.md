@@ -21,6 +21,7 @@ The Goal of the project is to developing a deep learning model for a logistic co
 # Proposal
 https://docs.google.com/presentation/d/1620GSp25dgO1NSkLDJX9eVQEMCR3U1WrjcSCX4yYud0/edit?usp=sharing
 
+
 # Data
 The Data is provide by DHL Supply Chain. The training data has been masked based on DHL Policy. 
 
