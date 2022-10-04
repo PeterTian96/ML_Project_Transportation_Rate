@@ -47,15 +47,15 @@ The Data is provide by DHL Supply Chain. The training data has been masked based
 
 
 # Environment
-The primiary language of the project is Python
+The primiary language of the project is **Python**
 
 **Colab** or **ACCRE** are major Virtual Machine for model training
 
 The project will use Notebook, Pycharm, and other IDEs
 
 # Contract
-Weixi Chen: weixi.chen@vanderbilt.edu
+**Peter Tian:** Zhengqi.tian@vanderbilt.edu
 
-Shuyang Lin: shuyang.lin@vanderbilt.edu
+**Shuyang Lin:** shuyang.lin@vanderbilt.edu
 
-Peter Tian: Zhengqi.tian@vanderbilt.edu
+**Weixi Chen:** weixi.chen@vanderbilt.edu
