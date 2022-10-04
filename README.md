@@ -19,6 +19,14 @@ The Goal of the project is to developing a deep learning model for a logistic co
 # Data
 The Data is provide by DHL Supply Chain. The training data has been masked based on DHL Policy. 
 
+**Historical Shipment Data (MT_Data)**
+**Description:** The dataset includes 4 month historical shipment information
+**Column:** 31
+**Rows:** 4,963,508
+**Column Names:**[Unnamed: 0.1', 'SHIPMENT ID', 'CUSTOMER', 'DISTANCE', 'CASES', 'WEIGHT', 'VOLUME', 'SOURCE LOCATION ID', 'ORIGIN NAME','ORIGIN CITY', 'ORIGIN STATE', 'ORIGIN ZIP', 'DEST LOCATION ID','CONSIGNEE NAME', 'DEST CITY', 'DEST STATE', 'DEST ZIP', 'ACTUAL CARRIER', 'ACTUAL MODE', 'ACTUAL EQUIP', 'LINEHAUL COSTS', 'FUEL COSTS', 'ACC. COSTS', 'TOTAL ACTUAL COST', 'PU_APPT', 'DL_APPT', 'PU_ARRIVAL (X3)', 'PU_DEPARTED (AF)', 'DL_ARRIVAL (X1)', 'DL_DEPARTED (D1)', 'Insert Date']
+
+
+
 
 # Environment
 The primiary language of the project is Python
