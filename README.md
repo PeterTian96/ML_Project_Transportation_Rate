@@ -1,5 +1,4 @@
 <img width="711" alt="Screen Shot 2022-10-04 at 10 49 14 AM" src="https://user-images.githubusercontent.com/89152255/193866083-1aeb8ee7-050d-4a63-add8-13750bef29f4.png">
-# ML_Project_Transportation_Rate
 
 # Quick Navigation
 
