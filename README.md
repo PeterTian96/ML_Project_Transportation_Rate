@@ -2,15 +2,15 @@
 
 # Quick Navigation
 
-[Goal](#Goal)
+**[Goal]**(#Goal)
 
-[Data](#Data)
+**[Data]**(#Data)
 
-[Environment](#Environment)
+**[Environment]**(#Environment)
 
-[Package](#Package)
+**[Package]**(#Package)
 
-[Contract](#Contract)
+**[Contract]**(#Contract)
 
 
 # Goal
