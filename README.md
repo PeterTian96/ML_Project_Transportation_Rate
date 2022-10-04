@@ -54,7 +54,7 @@ The primiary language of the project is **Python**
 The project will use Notebook, Pycharm, and other IDEs
 
 # Contract
-**Peter Tian:** Zhengqi.tian@vanderbilt.edu
+**Peter Tian:** zhengqi.tian@vanderbilt.edu
 
 **Shuyang Lin:** shuyang.lin@vanderbilt.edu
 
