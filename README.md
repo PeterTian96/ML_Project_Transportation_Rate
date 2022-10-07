@@ -12,7 +12,11 @@
 
 **[Package](#Package)**
 
+
+**[Resource](#Resource)**
+
 **[Contract](#Contract)**
+
 
 
 # Goal
@@ -53,8 +57,14 @@ The primiary language of the project is **Python**
 
 The project will use Notebook, Pycharm, and other IDEs
 
+# Resource
+
+**Model:** https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html
+
 # Contract
 **Peter Tian:** zhengqi.tian@vanderbilt.edu
+
+
 
 **Shuyang Lin:** shuyang.lin@vanderbilt.edu
 
