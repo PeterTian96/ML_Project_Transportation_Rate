@@ -33,12 +33,12 @@ path = "/content/gdrive/MyDrive/ML-Transportation-Rate/"
 
 np.random.seed(114514)
 
-class FNN:
+class NN:
   '''
   Inital class for 2 hidden layers with ReLU as activation
-  
+
   Steps:
-  1. process = FNN()
+  1. process = FCNN()
   2. process.clean_date(data, X_columns, dummies)
   3. process.modeling(epoch = 10)
 
@@ -133,7 +133,7 @@ class FNN:
     self.loss = self.cost(pred, test_labels)
     print("test:", self.loss)
 
-ltl_process = FNN()
+ltl_process = NN()
 
 ltl_data = pd.read_csv(path + "sample data/LTL_Cleaned_Sample_Data.csv")
 X_columns = ['DEST ZIP','DEST_POSTAL_CODE', 'DEST CITY', 'ORIGIN ZIP', 'ORIGIN CITY', 'ORIG_POSTAL_CODE', 'CUSTOMER', 'ACTUAL CARRIER', 'DEST LOCATION ID','VOLUME', 'DEST STATE', 'DEST_STATE','WEIGHT', 'ORIGIN STATE', 'ORIG_STATE', 'DISTANCE', 'ORIGIN NAME', 'CONTRACT_AVG_LINEHAUL_RATE', 'CONTRACT_HIGH_LINEHAUL_RATE','CASES']
@@ -143,7 +143,7 @@ ltl_process.clean_data(ltl_data, X_columns, dummies)
 
 ltl_process.modeling(epoch = 1000)
 
-class FNN_tanh(FNN):
+class NN_tanh(NN):
   def model_initialize(self, hidden_size, x_size):
     self.my_nn = torch.nn.Sequential(
           torch.nn.Linear(x_size, hidden_size),
@@ -153,11 +153,11 @@ class FNN_tanh(FNN):
           torch.nn.Linear(hidden_size, 1),
         ).to(self.device)
 
-ltl_tanh = FNN_tanh()
+ltl_tanh = NN_tanh()
 ltl_tanh.clean_data(ltl_data, X_columns, dummies)
 ltl_tanh.modeling(epoch = 1000)
 
-class FNN_3(FNN):
+class NN_3(NN):
   def model_initialize(self, hidden_size, x_size):
     self.my_nn = torch.nn.Sequential(
           torch.nn.Linear(x_size, hidden_size),
@@ -169,7 +169,7 @@ class FNN_3(FNN):
           torch.nn.Linear(hidden_size, 1)
         ).to(self.device)
 
-ltl_3 = FNN_3()
+ltl_3 = NN_3()
 ltl_3.clean_data(ltl_data, X_columns, dummies)
 ltl_3.modeling(epoch = 1000)
 
@@ -177,12 +177,55 @@ tl_data = pd.read_csv(path + "sample data/TL_Cleaned_Sample_Data.csv")
 X_columns = ['DEST ZIP','DEST_POSTAL_CODE', 'DEST CITY', 'ORIGIN ZIP', 'ORIGIN CITY', 'ORIG_POSTAL_CODE', 'CUSTOMER', 'ACTUAL CARRIER', 'DEST LOCATION ID','VOLUME', 'DEST STATE', 'DEST_STATE','WEIGHT', 'ORIGIN STATE', 'ORIG_STATE', 'DISTANCE', 'ORIGIN NAME', 'CONTRACT_AVG_LINEHAUL_RATE', 'CONTRACT_HIGH_LINEHAUL_RATE','CASES']
 dummies = ['DEST ZIP','DEST_POSTAL_CODE', 'DEST CITY', 'ORIGIN ZIP', 'ORIGIN CITY', 'ORIG_POSTAL_CODE', 'CUSTOMER', 'ACTUAL CARRIER', 'DEST LOCATION ID', 'DEST STATE', 'DEST_STATE', 'ORIGIN STATE', 'ORIG_STATE', 'ORIGIN NAME']
 
-tl_p = FNN()
+tl_p = NN()
 tl_p.clean_data(tl_data, X_columns, dummies)
 tl_p.modeling(epoch = 1000)
 
 rail_data = pd.read_csv(path + "sample data/INTERMODAL_Cleaned_Sample_Data.csv")
 
-rail_p = FNN()
+rail_p = NN()
 rail_p.clean_data(tl_data, X_columns, dummies)
 rail_p.modeling(epoch = 1000)
+
+class simple_NN(NN):
+  def model_initialize(self, hidden_size, x_size):
+    # default to 2 hidden layers
+    self.my_nn = torch.nn.Sequential(
+          torch.nn.Linear(x_size, hidden_size),
+          torch.nn.Linear(hidden_size, hidden_size),
+          torch.nn.Linear(hidden_size, 1),
+        ).to(self.device)
+
+ltl＿data.head()
+
+ltl_simple = simple_NN()
+ltl_simple.clean_data(ltl_data, X_columns, dummies)
+ltl_simple.modeling(epoch = 1000)
+
+class time_NN(NN):
+  def clean_data(self, data, X_columns, dummies):
+    # one hot code dummies
+    first_data = data[X_columns + ['LINEHAUL COSTS']].copy()
+    for col in dummies:
+      temp_col = pd.get_dummies(first_data[col], prefix = col)
+      first_data = pd.concat([first_data, temp_col],axis=1)
+    first_data.drop(dummies, axis=1, inplace=True)
+    for col in ['PU_APPT','DL_APPT']:
+      temp_col = (first_data[col].astype('datetime64[D]') - first_data[col].astype('datetime64[Y]'))/ np.timedelta64(1, 'D')
+      first_data.drop(col, axis=1, inplace=True)
+      first_data = pd.concat([first_data, temp_col],axis=1)
+    first_data = first_data.astype('float64')
+    self.cleaned_data = first_data.copy()
+    del first_data
+
+ltl_time = time_NN()
+ltl_time.clean_data(ltl_data, X_columns + ['PU_APPT','DL_APPT'], dummies)
+ltl_time.modeling(epoch = 1000)
+
+tl_time = time_NN()
+tl_time.clean_data(tl_data, X_columns + ['PU_APPT','DL_APPT'], dummies)
+tl_time.modeling(epoch = 1000)
+
+rail_time = time_NN()
+rail_time.clean_data(rail_data, X_columns + ['PU_APPT','DL_APPT'], dummies)
+rail_time.modeling(epoch = 1000)
