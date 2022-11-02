@@ -16,7 +16,7 @@
 
 **[Resource](#Resource)**
 
-**[Contract](#Contract)**
+**[Contact](#Contract)**
 
 
 
@@ -59,7 +59,7 @@ The project will use Notebook, Pycharm, and other IDEs
 
 **Model:** https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html
 
-# Contract
+# Contact
 **Peter Tian:** zhengqi.tian@vanderbilt.edu
 
 
