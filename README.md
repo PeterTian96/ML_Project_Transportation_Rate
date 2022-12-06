@@ -5,7 +5,7 @@
 
 **[Goal](#Goal)**
 
-**[Proposal](Proposal)**
+**[Introduction](Introduction)**
 
 **[Data](#Data)**
 
