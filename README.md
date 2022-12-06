@@ -23,8 +23,8 @@
 # Goal
 The Goal of the project is to developing a deep learning model for a logistic company to predict transportation rate. The company is able to use the model to predict the markt transportation rate.
 
-# Proposal
-https://github.com/PeterTian96/ML_Project_Transpotation_Rate/blob/main/TransRate%20Proposal.pdf
+# Introduction
+[https://github.com/PeterTian96/ML_Project_Transportation_Rate/blob/main/TranRater%20Introduction.pdf]
 
 
 # Data
